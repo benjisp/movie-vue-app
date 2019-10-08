@@ -1,40 +1,44 @@
 <template>
-  <div class="home">
-    <h1>New Actor</h1>
-    <div>
-      First Name:
-      <input type="text" v-model="newActorFirstName" />
-      Last Name:
-      <input type="text" v-model="newActorLastName" />
-      Gender:
-      <input type="text" v-model="newActorGender" />
-      Age:
-      <input type="text" v-model="newActorAge" />
-      <button v-on:click="createActor()">Create Actor</button>
-    </div>
-    <h1>All Actors</h1>
-    <div v-for="actor in actors">
-      <h2>{{ actor.first_name }} {{ actor.last_name }}</h2>
-      <button v-on:click="showActor(actor)">Show more</button>
-      <div v-if="currentActor === actor">
-        <p>Gender: {{ actor.gender }}</p>
-        <p>Age: {{ actor.age }}</p>
-        <div>
-          First Name:
-          <input type="text" v-model="actor.first_name" />
-          Last Name:
-          <input type="text" v-model="actor.last_name" />
-          Gender:
-          <input type="text" v-model="actor.gender" />
-          Age:
-          <input type="text" v-model="actor.age" />
-          <button v-on:click="updateActor(actor)">Update Actor</button>
-          <button v-on:click="destroyActor(actor)">Destroy Actor</button>
+  <body>
+    <div class="home">
+      <h2>New actor</h2>
+      <div>
+        First Name:
+        <input type="text" v-model="newActorFirstName" />
+        Last Name:
+        <input type="text" v-model="newActorLastName" />
+        Gender:
+        <input type="text" v-model="newActorGender" />
+        Age:
+        <input type="text" v-model="newActorAge" />
+        <button v-on:click="createActor()">Create Actor</button>
+      </div>
+      <h1>All Actors</h1>
+      <div v-for="actor in actors">
+        <h2>Name: {{ actor.first_name }} {{ actor.last_name }}</h2>
+        <button v-on:click="showActor(actor)">More Info</button>
+        <div v-if="currentActor === actor">
+          <h4>Gender: {{ actor.gender }}</h4>
+          <h4>Age: {{ actor.age }}</h4>
+          <div>
+            First Name:
+            <input type="text" v-model="actor.first_name" />
+            Last Name:
+            <input type="text" v-model="actor.last_name" />
+            Gender:
+            <input type="text" v-model="actor.gender" />
+            Age:
+            <input type="text" v-model="actor.age" />
+            <button v-on:click="updateActor(actor)">Update Actor</button>
+            <button v-on:click="destroyActor(actor)">Destroy Actor</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </body>
 </template>
+
+<style></style>
 
 <script>
 import axios from "axios";
