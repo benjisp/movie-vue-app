@@ -16,6 +16,15 @@
           <li class="tm-nav-item">
             <router-link to="movies/new" class="tm-nav-item-link">New Movie</router-link>
           </li>
+          <li class="tm-nav-item">
+            <router-link to="/signup" class="tm-nav-item-link">Signup</router-link>
+          </li>
+          <li class="tm-nav-item">
+            <router-link to="/login" class="tm-nav-item-link">Login</router-link>
+          </li>
+          <li class="tm-nav-item">
+            <router-link to="/logout" class="tm-nav-item-link">Logout</router-link>
+          </li>
         </ul>
       </nav>
     </div>
