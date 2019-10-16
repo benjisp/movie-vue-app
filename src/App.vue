@@ -1,36 +1,26 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Actors</router-link>
-      |
-      <router-link to="/about">Movies</router-link>
-      |
-      <router-link to="/movies">All Movies</router-link>
-      |
-      <router-link to="/movies/new">New Movie</router-link>
+    <div class="tm-blue-bg tm-left-column">
+      <div class="tm-logo-div text-xs-center">
+        <img src="img/tm-neaty-logo.png" alt="Logo" />
+        <h1 class="tm-site-name">Neaty</h1>
+      </div>
+      <nav class="tm-main-nav">
+        <ul class="tm-main-nav-ul">
+          <li class="tm-nav-item">
+            <router-link to="/" class="tm-nav-item-link">All Actors</router-link>
+          </li>
+          <li class="tm-nav-item">
+            <router-link to="/movies" class="tm-nav-item-link">All Movies</router-link>
+          </li>
+          <li class="tm-nav-item">
+            <router-link to="movies/new" class="tm-nav-item-link">New Movie</router-link>
+          </li>
+        </ul>
+      </nav>
     </div>
     <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
