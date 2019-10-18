@@ -1,7 +1,12 @@
 <template>
   <div class="movies-index">
     <h1>All Movies</h1>
-    <div v-for="movie in movies">
+    Search by Title:
+    <input v-model="titleFilter" list="titles" />
+    <datalist id="titles">
+      <option v-for="movie in movies">{{ movie.title }}</option>
+    </datalist>
+    <div v-for="movie in orderBy(filterBy(movies, titleFilter, 'title'), 'year')">
       <h2>{{ movie.title }}</h2>
       <h3>{{ movie.year }}</h3>
       <h3>{{ movie.director }}</h3>
@@ -13,10 +18,13 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
-      movies: []
+      movies: [],
+      titleFilter: ""
     };
   },
   created: function() {

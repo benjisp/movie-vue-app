@@ -14,7 +14,12 @@
         <button v-on:click="createActor()">Create Actor</button>
       </div>
       <h1>All Actors</h1>
-      <div v-for="actor in actors">
+      Search by name:
+      <input v-model="nameFilter" list="names" />
+      <datalist id="names">
+        <option v-for="actor in actors">{{ actor.first_name }} {{ actor.last_name }}</option>
+      </datalist>
+      <div v-for="actor in filterBy(actors, nameFilter, 'first_name')">
         <h2>Name: {{ actor.first_name }} {{ actor.last_name }}</h2>
         <button v-on:click="showActor(actor)">More Info</button>
         <div v-if="currentActor === actor">
@@ -42,8 +47,10 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 
 export default {
+  mixins: [Vue2Filters.mixin],
   data: function() {
     return {
       actors: [],
@@ -51,7 +58,8 @@ export default {
       newActorFirstName: "",
       newActorLastName: "",
       newActorGender: "",
-      newActorAge: ""
+      newActorAge: "",
+      nameFilter: ""
     };
   },
   created: function() {
